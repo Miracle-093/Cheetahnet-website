@@ -1,39 +1,59 @@
 import Link from "next/link";
-import { ArrowRight, Gamepad2, Home, RadioTower, Upload, Video, Wifi } from "lucide-react";
+import { ArrowRight, Building2, Camera, Gamepad2, Headphones, Home, MapPinned, RadioTower, Upload, Video } from "lucide-react";
 import { Hero } from "@/components/hero";
 import { PackageCard } from "@/components/package-card";
 import { PlanFinder } from "@/components/plan-finder";
+import { HomeCoverageChecker } from "@/components/home-coverage-checker";
 import { FAQ } from "@/components/faq";
 import { faqs } from "@/lib/faqs";
 import { packages } from "@/lib/packages";
 
 const uses = [
-  { icon: Home, title: "Homes", text: "Keep everyday life, entertainment and shared devices moving." },
-  { icon: Video, title: "Work", text: "Build a more dependable routine for calls and cloud-based work." },
-  { icon: Upload, title: "Creators", text: "Choose more room for publishing, uploads and large project files." },
-  { icon: Gamepad2, title: "Gaming", text: "Find a tier suited to busy gaming and streaming households." },
-  { icon: RadioTower, title: "Business", text: "Start the conversation around your team and workflow needs." },
+  { icon:Home,title:"Home",kicker:"Everyday connection",text:"Browse, stream and keep the people at home connected across their regular devices." },
+  { icon:Video,title:"Work",kicker:"Calls and cloud tools",text:"Choose a practical starting speed for video calls, shared files and remote work." },
+  { icon:Upload,title:"Create",kicker:"Uploads and publishing",text:"Give heavier uploads, streaming and creative workflows more room to move." },
+  { icon:Gamepad2,title:"Play",kicker:"Gaming households",text:"Compare tiers for homes where gaming and streaming happen side by side." },
+  { icon:Building2,title:"Business",kicker:"Connected teams",text:"Start with your device count and the daily needs of the people you work with." },
+];
+
+const trustNeeds = [
+  { icon:Headphones,title:"Support information",need:"Approved channels, operating hours and escalation process" },
+  { icon:MapPinned,title:"Service areas",need:"Current, approved neighbourhood and service-area list" },
+  { icon:Camera,title:"Installation photography",need:"Rights-cleared team, router and installation images" },
+  { icon:RadioTower,title:"Network performance",need:"Approved methodology and verified performance information" },
 ];
 
 export default function HomePage() {
-  const faqSchema = { "@context":"https://schema.org", "@type":"FAQPage", mainEntity: faqs.map((item) => ({"@type":"Question",name:item.q,acceptedAnswer:{"@type":"Answer",text:item.a}})) };
+  const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(item=>({"@type":"Question",name:item.q,acceptedAnswer:{"@type":"Answer",text:item.a}}))};
   return <main>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-    <Hero />
-    <section className="py-24 md:py-32">
-      <div className="container"><span className="eyebrow">Built around your internet</span><div className="mt-7 grid gap-10 lg:grid-cols-[1.1fr_.9fr]"><h2 className="section-title">One network.<br/>Different ways to move.</h2><p className="max-w-xl self-end text-lg leading-8 text-white/55">Whether the day means calls, uploads, gameplay or a house full of streams, start with the package shaped around how you actually connect.</p></div>
-      <div className="mt-14 grid border-y border-white/10 md:grid-cols-5">{uses.map(({icon:Icon,title,text},index) => <article key={title} className={`py-7 md:px-5 ${index ? "border-t border-white/10 md:border-l md:border-t-0" : ""}`}><Icon className="size-5 text-[#ff6b18]"/><h3 className="mt-10 font-semibold">{title}</h3><p className="mt-3 text-sm leading-6 text-white/45">{text}</p></article>)}</div></div>
-    </section>
-    <section id="packages" className="border-y border-white/10 bg-[#0b0c09] py-24 md:py-32">
-      <div className="container"><div className="flex flex-col justify-between gap-7 md:flex-row md:items-end"><div><span className="eyebrow">Provisional packages</span><h2 className="section-title mt-7">Choose your pace.</h2></div><Link href="/packages" className="button-secondary">Compare all packages <ArrowRight className="size-4" /></Link></div>
-      <p className="mt-5 max-w-xl text-sm leading-6 text-white/45">Pricing and package information is sourced from the current public website and remains subject to CheetahNet approval.</p>
-      <div className="mt-12 grid gap-5 lg:grid-cols-4 md:grid-cols-2">{packages.map((plan) => <PackageCard key={plan.id} plan={plan} featured={plan.id === "elite-pro"} />)}</div></div>
-    </section>
-    <section className="py-24 md:py-32"><div className="container"><span className="eyebrow">Guided recommendation</span><h2 className="section-title mt-7 max-w-3xl">A clearer place to start.</h2><div className="mt-12"><PlanFinder /></div></div></section>
-    <section className="border-y border-white/10 bg-[#c8ff45] py-24 text-black"><div className="container grid gap-12 md:grid-cols-[.8fr_1.2fr]"><div><span className="text-xs font-bold uppercase tracking-[.18em]">From interest to installation</span><h2 className="section-title mt-7">Three clean steps.</h2></div><ol className="grid gap-0 border-t border-black/20">{[["01","Check your location","Share your area, street and nearby landmark for manual confirmation."],["02","Choose a package","Compare the provisional speeds and select a practical starting point."],["03","Request installation","Leave your details so the team can follow up on next steps."]].map(([number,title,text]) => <li key={number} className="grid grid-cols-[50px_1fr] gap-4 border-b border-black/20 py-7"><span className="text-sm font-bold">{number}</span><div><h3 className="text-xl font-semibold">{title}</h3><p className="mt-2 max-w-xl text-sm leading-6 text-black/60">{text}</p></div></li>)}</ol></div></section>
-    <section className="py-24 md:py-32"><div className="container grid gap-14 lg:grid-cols-[.75fr_1.25fr]"><div><span className="eyebrow">Why consider CheetahNet</span><h2 className="section-title mt-7">A faster route to the right fit.</h2></div><div className="grid gap-5 sm:grid-cols-2">{[[Wifi,"Fibre-first offer","The experience keeps the fibre product clear from the first screen."],[RadioTower,"Coverage before claims","Every address is routed to verification rather than an unsupported promise."],[Gamepad2,"Use-led choices","Packages are framed around real activities, not technical numbers alone."],[Upload,"Room to compare","See speed, cost and intended use together before making a request."]].map(([Icon,title,text]) => { const C = Icon as typeof Wifi; return <article key={String(title)} className="card p-7"><C className="size-5 text-[#c8ff45]"/><h3 className="mt-8 text-xl font-semibold">{String(title)}</h3><p className="mt-3 text-sm leading-6 text-white/45">{String(text)}</p></article>})}</div></div></section>
-    <section className="border-y border-white/10 bg-[#0b0c09] py-24"><div className="container grid gap-12 md:grid-cols-[1fr_.8fr] md:items-center"><div><span className="eyebrow">Coverage first</span><h2 className="section-title mt-7">Let’s locate your connection.</h2><p className="mt-6 max-w-xl leading-7 text-white/55">Tell us your neighbourhood, street and nearest landmark. Availability will be manually verified before installation is confirmed.</p></div><div className="md:text-right"><Link href="/coverage" className="button-primary">Check coverage <ArrowRight className="size-4" /></Link></div></div></section>
-    <section className="py-24 md:py-32"><div className="container grid gap-12 lg:grid-cols-[.7fr_1.3fr]"><div><span className="eyebrow">Questions, answered</span><h2 className="section-title mt-7">Before you connect.</h2></div><FAQ /></div></section>
-    <section className="pb-24 md:pb-32"><div className="container"><div className="card relative overflow-hidden p-8 md:p-16"><div className="absolute right-0 top-0 size-80 translate-x-1/3 -translate-y-1/3 rounded-full bg-[#ff6b18]/15 blur-3xl"/><span className="eyebrow">Already connected?</span><h2 className="mt-7 max-w-3xl text-4xl font-semibold tracking-[-.06em] md:text-6xl">Renew your CheetahNet package through the customer portal.</h2><a href="https://portal.cheetahnet.co.ug/" target="_blank" rel="noreferrer" className="button-primary mt-9">Open renewal portal <ArrowRight className="size-4" /></a></div></div></section>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(faqSchema)}}/>
+    <Hero/>
+
+    <section className="benefit-ribbon bg-[#f4f0e5] text-[#11130f]"><div className="container grid divide-y divide-black/10 py-5 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+      <div className="py-4 sm:px-6"><strong className="block text-2xl tracking-[-.04em]">From UGX 75,000</strong><span className="mt-1 block text-xs uppercase tracking-[.16em] text-black/50">per month</span></div>
+      <div className="py-4 sm:px-8"><strong className="block text-2xl tracking-[-.04em]">15–250 Mbps</strong><span className="mt-1 block text-xs uppercase tracking-[.16em] text-black/50">published package range</span></div>
+      <div className="py-4 sm:px-8"><strong className="block text-2xl tracking-[-.04em]">Homes & businesses</strong><span className="mt-1 block text-xs uppercase tracking-[.16em] text-black/50">fibre packages</span></div>
+    </div></section>
+    <div className="bg-[#f4f0e5] pb-7 text-center text-[#11130f]"><p className="container text-xs text-black/45">Interactive website concept for CheetahNet — package and company information pending final approval.</p></div>
+
+    <section className="bg-[#f4f0e5] py-24 text-[#11130f] md:py-32"><div className="container"><span className="eyebrow !text-[#c64b08]">Made for what comes next</span><div className="mt-7 grid gap-8 lg:grid-cols-[1fr_.72fr]"><h2 className="section-title">One connection.<br/>Five ways forward.</h2><p className="max-w-xl self-end text-lg leading-8 text-black/60">Start with what the internet needs to do for you. Then compare the speed and price that make sense for that routine.</p></div>
+      <div className="mt-16 grid border-y border-black/15 md:grid-cols-5">{uses.map(({icon:Icon,title,kicker,text},index)=><article key={title} className={`group py-8 md:min-h-[300px] md:px-6 ${index?"border-t border-black/15 md:border-l md:border-t-0":""}`}><div className="grid size-11 place-items-center rounded-full bg-[#11130f] text-[#ff6b18]"><Icon className="size-5"/></div><p className="mt-10 text-[10px] font-bold uppercase tracking-[.17em] text-black/40">{kicker}</p><h3 className="mt-3 text-2xl font-semibold tracking-[-.04em]">{title}</h3><p className="mt-3 text-sm leading-6 text-black/55">{text}</p></article>)}</div>
+    </div></section>
+
+    <section id="packages" className="border-y border-white/10 bg-[#0b0c09] py-24 md:py-32"><div className="container"><div className="flex flex-col justify-between gap-7 md:flex-row md:items-end"><div><span className="eyebrow">Internet packages</span><h2 className="section-title mt-7">Choose your pace.</h2></div><Link href="/packages" className="button-secondary">Compare all packages<ArrowRight className="size-4"/></Link></div><div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">{packages.map(plan=><PackageCard key={plan.id} plan={plan} featured={plan.id==="elite-pro"}/>)}</div></div></section>
+
+    <section className="bg-[#ff6b18] py-24 text-black md:py-32"><div className="container"><span className="text-xs font-bold uppercase tracking-[.18em]">Guided recommendation</span><div className="mt-7 grid gap-8 lg:grid-cols-[1fr_.7fr]"><h2 className="section-title">Your needs first.<br/>Then the speed.</h2><p className="max-w-xl self-end text-lg leading-8 text-black/65">Answer four quick questions for a configurable recommendation you can compare before checking coverage.</p></div><div className="mt-12 [&_.card]:border-black/15 [&_.card]:bg-[#0b0c09] [&_.card]:text-white"><PlanFinder/></div></div></section>
+
+    <section id="coverage-check" className="bg-[#efe8d9] py-24 text-[#11130f] md:py-32"><div className="container"><div className="grid gap-8 lg:grid-cols-[1fr_.7fr]"><div><span className="eyebrow !text-[#c64b08]">Coverage checker</span><h2 className="section-title mt-7">Put your location on the map.</h2></div><p className="max-w-xl self-end text-lg leading-8 text-black/60">Share the area and nearest point of reference now. Your details stay with you as you continue the journey.</p></div><div className="mt-12"><HomeCoverageChecker/></div></div></section>
+
+    <section className="bg-[#11130f] py-24 md:py-32"><div className="container grid gap-14 lg:grid-cols-[.72fr_1.28fr]"><div><span className="eyebrow">From interest to installation</span><h2 className="section-title mt-7">Three steps.<br/>One clear route.</h2></div><ol className="border-t border-white/15">{[["01","Check your location","Share your neighbourhood and a nearby landmark for a manual coverage check."],["02","Choose your package","Compare speed, monthly price and the kind of use each package supports."],["03","Request installation","Leave your details and preferred contact method for the CheetahNet team."]].map(([number,title,text])=><li key={number} className="grid grid-cols-[56px_1fr_auto] items-start gap-4 border-b border-white/15 py-8"><span className="font-mono text-sm text-[#ff6b18]">{number}</span><div><h3 className="text-2xl font-semibold tracking-[-.04em]">{title}</h3><p className="mt-3 max-w-xl text-sm leading-6 text-white/50">{text}</p></div><ArrowRight className="mt-1 hidden size-5 text-white/25 sm:block"/></li>)}</ol></div></section>
+
+    <section className="bg-[#f4f0e5] py-24 text-[#11130f] md:py-32"><div className="container"><div className="grid gap-9 lg:grid-cols-[.9fr_1.1fr]"><div><span className="eyebrow !text-[#c64b08]">Evidence, ready for approval</span><h2 className="section-title mt-7">Trust should be specific.</h2></div><div><p className="text-lg leading-8 text-black/60">This section is structured for CheetahNet’s approved proof—not invented claims. Supply the items below to turn each panel into publishable evidence.</p><div className="mt-6 rounded-2xl border border-black/10 bg-white/55 p-5"><span className="text-[10px] font-bold uppercase tracking-[.18em] text-black/40">Testimonial slot</span><p className="mt-3 text-xl font-medium tracking-[-.03em]">Approved customer quote, full name, customer type and written publication consent.</p></div></div></div>
+      <div className="mt-14 grid gap-px overflow-hidden rounded-[28px] bg-black/15 sm:grid-cols-2">{trustNeeds.map(({icon:Icon,title,need})=><article key={title} className="min-h-[240px] bg-[#fffdf7] p-7"><Icon className="size-6 text-[#d75008]"/><h3 className="mt-12 text-2xl font-semibold tracking-[-.04em]">{title}</h3><p className="mt-3 text-sm leading-6 text-black/55">Needed: {need}.</p><span className="mt-6 inline-block rounded-full border border-black/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[.14em] text-black/45">Awaiting approved content</span></article>)}</div>
+    </div></section>
+
+    <section className="bg-[#0b0c09] py-24 md:py-32"><div className="container grid gap-12 lg:grid-cols-[.7fr_1.3fr]"><div><span className="eyebrow">Questions, answered</span><h2 className="section-title mt-7">Before you connect.</h2></div><FAQ/></div></section>
+
+    <section className="bg-[#ff6b18] py-20 text-black md:py-28"><div className="container grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end"><div><span className="text-xs font-bold uppercase tracking-[.18em]">Ready to start?</span><h2 className="mt-6 max-w-4xl text-5xl font-semibold leading-[.95] tracking-[-.065em] md:text-7xl">Check your location. Choose your speed.</h2></div><div className="flex flex-col gap-3 sm:flex-row lg:flex-col"><Link href="#coverage-check" className="rounded-full bg-black px-6 py-4 text-center font-bold text-white">Check coverage</Link><a href="https://portal.cheetahnet.co.ug/" target="_blank" rel="noreferrer" className="rounded-full border border-black/25 px-6 py-4 text-center font-bold">Renew package</a></div></div></section>
   </main>;
 }

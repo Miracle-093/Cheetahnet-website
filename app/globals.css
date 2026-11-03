@@ -27,6 +27,9 @@ button { cursor: pointer; }
 
 .container { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
 .display { font-size: clamp(3.5rem, 8vw, 8rem); line-height: .88; letter-spacing: -.075em; font-weight: 700; }
+.hero-title { font-size: clamp(3.25rem, 5.4vw, 6.4rem); line-height: .91; letter-spacing: -.07em; font-weight: 700; text-wrap: balance; }
+.hero-title span { color: var(--orange); }
+.campaign-pill { display: inline-flex; align-items: center; gap: .55rem; border: 1px solid rgba(200,255,69,.3); background: rgba(200,255,69,.08); color: var(--lime); padding: .55rem .8rem; border-radius: 999px; font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .16em; }
 .eyebrow { display: inline-flex; align-items: center; gap: .6rem; color: var(--lime); font-size: .72rem; text-transform: uppercase; letter-spacing: .18em; font-weight: 700; }
 .eyebrow::before { content: ""; width: 22px; height: 1px; background: currentColor; }
 .section-title { font-size: clamp(2.35rem, 5.2vw, 5rem); line-height: .95; letter-spacing: -.055em; }
@@ -43,6 +46,18 @@ button { cursor: pointer; }
 
 @keyframes pulse-line { 0%,100% { opacity: .25; transform: scaleX(.2); } 50% { opacity: 1; transform: scaleX(1); } }
 .signal-line { transform-origin: left; animation: pulse-line 2.8s ease-in-out infinite; }
+@keyframes fibre-flow { to { stroke-dashoffset: -120; } }
+@keyframes data-a { to { offset-distance: 100%; } }
+.fibre-fallback .fibre-path { stroke-dasharray: 8 13; }
+.fibre-fallback.is-animated .fibre-path { animation: fibre-flow 4s linear infinite; }
+.fibre-fallback.is-animated .path-b, .fibre-fallback.is-animated .path-d { animation-duration: 5.5s; animation-direction: reverse; }
+.fibre-fallback .data-dot { offset-distance: 0%; }
+.fibre-fallback .dot-a { offset-path: path("M378 337 C500 284 542 130 716 92"); }
+.fibre-fallback .dot-b { offset-path: path("M381 338 C532 355 610 284 752 320"); }
+.fibre-fallback .dot-c { offset-path: path("M380 342 C505 415 567 545 726 604"); }
+.fibre-fallback.is-animated .data-dot { animation: data-a 3.8s linear infinite; }
+.fibre-fallback.is-animated .dot-b { animation-delay: -1.8s; animation-duration: 4.8s; }
+.fibre-fallback.is-animated .dot-c { animation-delay: -2.7s; animation-duration: 4.2s; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -52,4 +67,7 @@ button { cursor: pointer; }
 @media (max-width: 640px) {
   .container { width: min(100% - 24px, 1180px); }
   .display { font-size: clamp(3.15rem, 17vw, 5.2rem); }
+  .hero-title { font-size: clamp(3rem, 14vw, 4.65rem); }
+  .hero-stage .container { padding-top: 3.5rem; }
+  .hero-network { margin-inline: -12px; }
 }

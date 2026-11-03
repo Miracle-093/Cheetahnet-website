@@ -48,7 +48,7 @@ export const packages: InternetPackage[] = [
     speedMbps: 250,
     priceUgx: 399_000,
     audience: "Businesses & power users",
-    description: "The highest provisional tier for teams and bandwidth-intensive use.",
+    description: "The highest listed tier for teams and bandwidth-intensive use.",
     benefits: ["Busy teams", "Many devices", "High-demand workflows"],
     accent: "lime",
   },
