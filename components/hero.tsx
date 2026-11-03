@@ -2,17 +2,16 @@
 
 import Link from "next/link";
 import { ArrowRight, Gauge, Infinity as InfinityIcon, MapPin, Sparkles } from "lucide-react";
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 import { HeroVisual } from "@/components/hero-visual";
 import { track } from "@/lib/analytics";
 
 export function Hero() {
-  const reduced = useReducedMotion();
   return <section className="hero-stage relative overflow-hidden border-b border-white/10 pt-[72px]">
     <div className="absolute inset-0 grid-noise opacity-55" />
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_47%,rgba(255,107,24,.16),transparent_28%),linear-gradient(90deg,#070806_0%,rgba(7,8,6,.97)_41%,rgba(7,8,6,.25)_73%,#070806_100%)]" />
     <div className="container relative grid min-h-[780px] items-center gap-8 py-16 lg:grid-cols-[1.04fr_.96fr] lg:py-12">
-      <motion.div initial={reduced ? false : { opacity:0, y:24 }} animate={{ opacity:1, y:0 }} transition={{ duration:.65 }} className="relative z-20 max-w-[720px]">
+      <motion.div initial={false} className="relative z-20 max-w-[720px]">
         <div className="campaign-pill"><Sparkles className="size-3.5"/> Move at the speed of now</div>
         <h1 className="hero-title mt-7">Unlimited fibre.<br/><span>Built for everything</span><br/>you do next.</h1>
         <p className="mt-7 max-w-[620px] text-lg font-medium leading-8 text-[#e2dfd6] md:text-xl">Fast, uncapped fibre internet for homes, creators and businesses—from <strong className="text-white">UGX 75,000/month.</strong></p>
