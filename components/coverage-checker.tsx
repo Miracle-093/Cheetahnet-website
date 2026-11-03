@@ -1,0 +1,16 @@
+"use client";
+
+import { FormEvent, useState } from "react";
+import Link from "next/link";
+import { ArrowRight, MapPin } from "lucide-react";
+import { track } from "@/lib/analytics";
+import { packages } from "@/lib/packages";
+
+export function CoverageChecker({ initialPackage = "" }: { initialPackage?: string }) {
+  const [status, setStatus] = useState<"idle"|"checking"|"manual">("idle");
+  const submit = (event: FormEvent<HTMLFormElement>) => { event.preventDefault(); track("coverage_check_started"); setStatus("checking"); window.setTimeout(() => { setStatus("manual"); track("coverage_check_completed", { result: "manual_verification" }); }, 650); };
+  return <div className="card grid overflow-hidden md:grid-cols-[1.2fr_.8fr]">
+    <form onSubmit={submit} className="p-7 md:p-10"><div className="grid gap-5"><label className="grid gap-2 text-sm">Neighbourhood or area<input required name="area" className="rounded-xl border border-white/10 bg-white/5 px-4 py-3.5" placeholder="e.g. your neighbourhood" /></label><label className="grid gap-2 text-sm">Street or road<input required name="street" className="rounded-xl border border-white/10 bg-white/5 px-4 py-3.5" placeholder="Street or road name" /></label><label className="grid gap-2 text-sm">Nearest landmark<input required name="landmark" className="rounded-xl border border-white/10 bg-white/5 px-4 py-3.5" placeholder="A nearby landmark" /></label><label className="grid gap-2 text-sm">Package of interest<select name="package" defaultValue={initialPackage} className="rounded-xl border border-white/10 bg-[#11130f] px-4 py-3.5"><option value="">Not selected</option>{packages.map((plan) => <option key={plan.id} value={plan.id}>{plan.name} — {plan.speedMbps} Mbps</option>)}</select></label><button disabled={status === "checking"} className="button-primary mt-2">{status === "checking" ? "Checking…" : "Check my location"} <ArrowRight className="size-4" /></button></div></form>
+    <aside className="border-t border-white/10 bg-white/[.025] p-7 md:border-l md:border-t-0 md:p-10"><MapPin className="size-7 text-[#ff6b18]"/><h2 className="mt-8 text-2xl font-semibold">Coverage, responsibly checked.</h2>{status === "manual" ? <div className="mt-7 rounded-2xl border border-[#c8ff45]/30 bg-[#c8ff45]/10 p-5" aria-live="polite"><strong className="text-[#c8ff45]">Manual verification needed</strong><p className="mt-2 text-sm leading-6 text-white/60">This staging experience does not have an approved coverage database. Continue to installation request and the team can confirm your location.</p><Link href={`/installation${initialPackage ? `?package=${initialPackage}` : ""}`} className="mt-5 inline-flex items-center gap-2 text-sm font-bold">Leave contact details <ArrowRight className="size-4"/></Link></div> : <p className="mt-5 text-sm leading-6 text-white/50">We will never claim automatic availability without approved network data. Every demo result is routed to manual confirmation.</p>}</aside>
+  </div>;
+}

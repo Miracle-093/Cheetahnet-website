@@ -1,0 +1,4 @@
+import type { Metadata } from "next";
+import { CoverageChecker } from "@/components/coverage-checker";
+export const metadata: Metadata = { title: "Check fibre coverage", description: "Share your location for manual CheetahNet fibre coverage verification.", alternates: { canonical: "/coverage" } };
+export default async function CoveragePage({ searchParams }: { searchParams: Promise<{ package?: string }> }) { const query = await searchParams; return <main className="min-h-screen pt-28"><section className="py-16"><div className="container"><span className="eyebrow">Coverage check</span><h1 className="section-title mt-7 max-w-4xl">Is fibre close to you?</h1><p className="mt-6 max-w-2xl text-lg leading-8 text-white/55">Share precise location cues for a qualified manual check. No unsupported availability claims.</p><div className="mt-12"><CoverageChecker initialPackage={query.package} /></div></div></section></main> }

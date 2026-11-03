@@ -1,0 +1,3 @@
+import type { Metadata } from "next";
+export const metadata: Metadata={title:"Terms",description:"Terms placeholder for CheetahNet company review.",alternates:{canonical:"/terms"}};
+export default function TermsPage(){return <main className="min-h-screen pt-28"><article className="container max-w-3xl py-20"><span className="eyebrow">Company review required</span><h1 className="section-title mt-7">Terms of service</h1><p className="mt-10 text-lg leading-8 text-white/55">This page is intentionally a placeholder. CheetahNet must supply and approve the applicable commercial terms, fair-use rules, installation conditions, billing details and service commitments before production launch.</p></article></main>}

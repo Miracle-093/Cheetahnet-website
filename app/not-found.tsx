@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function NotFound(){return <main className="grid min-h-screen place-items-center px-6 pt-20 text-center"><div><span className="text-8xl font-black tracking-[-.09em] text-[#ff6b18]">404</span><h1 className="mt-4 text-3xl font-semibold">This signal went off route.</h1><p className="mt-4 text-white/50">The page you’re looking for is not connected.</p><Link href="/" className="button-primary mt-8">Return home</Link></div></main>}

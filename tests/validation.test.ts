@@ -1,0 +1,3 @@
+import { describe,expect,it } from "vitest"; import { installationSchema } from "@/lib/validation";
+const valid={fullName:"Amina N.",phone:"+256 700 000000",email:"",customerType:"home",location:"Central Kampala",landmark:"Nearby landmark",packageId:"elite-pro",contactMethod:"phone",notes:"",consent:"on",website:""};
+describe("installationSchema",()=>{it("accepts a complete request",()=>expect(installationSchema.safeParse(valid).success).toBe(true));it("rejects invalid phone numbers",()=>expect(installationSchema.safeParse({...valid,phone:"abc"}).success).toBe(false));it("rejects honeypot content",()=>expect(installationSchema.safeParse({...valid,website:"spam"}).success).toBe(false))});
