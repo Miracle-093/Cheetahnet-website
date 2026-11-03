@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Building2, Camera, Gamepad2, Headphones, Home, MapPinned, RadioTower, Upload, Video } from "lucide-react";
+import { ArrowRight, Building2, Gamepad2, Home, Upload, Video } from "lucide-react";
 import { Hero } from "@/components/hero";
 import { PackageCard } from "@/components/package-card";
 import { PlanFinder } from "@/components/plan-finder";
@@ -14,13 +14,6 @@ const uses = [
   { icon:Upload,title:"Create",kicker:"Uploads and publishing",text:"Give heavier uploads, streaming and creative workflows more room to move." },
   { icon:Gamepad2,title:"Play",kicker:"Gaming households",text:"Compare tiers for homes where gaming and streaming happen side by side." },
   { icon:Building2,title:"Business",kicker:"Connected teams",text:"Start with your device count and the daily needs of the people you work with." },
-];
-
-const trustNeeds = [
-  { icon:Headphones,title:"Support information",need:"Approved channels, operating hours and escalation process" },
-  { icon:MapPinned,title:"Service areas",need:"Current, approved neighbourhood and service-area list" },
-  { icon:Camera,title:"Installation photography",need:"Rights-cleared team, router and installation images" },
-  { icon:RadioTower,title:"Network performance",need:"Approved methodology and verified performance information" },
 ];
 
 export default function HomePage() {
@@ -48,12 +41,8 @@ export default function HomePage() {
 
     <section className="bg-[#11130f] py-24 md:py-32"><div className="container grid gap-14 lg:grid-cols-[.72fr_1.28fr]"><div><span className="eyebrow">From interest to installation</span><h2 className="section-title mt-7">Three steps.<br/>One clear route.</h2></div><ol className="border-t border-white/15">{[["01","Check your location","Share your neighbourhood and a nearby landmark for a manual coverage check."],["02","Choose your package","Compare speed, monthly price and the kind of use each package supports."],["03","Request installation","Leave your details and preferred contact method for the CheetahNet team."]].map(([number,title,text])=><li key={number} className="grid grid-cols-[56px_1fr_auto] items-start gap-4 border-b border-white/15 py-8"><span className="font-mono text-sm text-[#ff6b18]">{number}</span><div><h3 className="text-2xl font-semibold tracking-[-.04em]">{title}</h3><p className="mt-3 max-w-xl text-sm leading-6 text-white/50">{text}</p></div><ArrowRight className="mt-1 hidden size-5 text-white/25 sm:block"/></li>)}</ol></div></section>
 
-    <section className="bg-[#f4f0e5] py-24 text-[#11130f] md:py-32"><div className="container"><div className="grid gap-9 lg:grid-cols-[.9fr_1.1fr]"><div><span className="eyebrow !text-[#c64b08]">Evidence, ready for approval</span><h2 className="section-title mt-7">Trust should be specific.</h2></div><div><p className="text-lg leading-8 text-black/60">This section is structured for CheetahNet’s approved proof—not invented claims. Supply the items below to turn each panel into publishable evidence.</p><div className="mt-6 rounded-2xl border border-black/10 bg-white/55 p-5"><span className="text-[10px] font-bold uppercase tracking-[.18em] text-black/40">Testimonial slot</span><p className="mt-3 text-xl font-medium tracking-[-.03em]">Approved customer quote, full name, customer type and written publication consent.</p></div></div></div>
-      <div className="mt-14 grid gap-px overflow-hidden rounded-[28px] bg-black/15 sm:grid-cols-2">{trustNeeds.map(({icon:Icon,title,need})=><article key={title} className="min-h-[240px] bg-[#fffdf7] p-7"><Icon className="size-6 text-[#d75008]"/><h3 className="mt-12 text-2xl font-semibold tracking-[-.04em]">{title}</h3><p className="mt-3 text-sm leading-6 text-black/55">Needed: {need}.</p><span className="mt-6 inline-block rounded-full border border-black/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[.14em] text-black/45">Awaiting approved content</span></article>)}</div>
-    </div></section>
-
     <section className="bg-[#0b0c09] py-24 md:py-32"><div className="container grid gap-12 lg:grid-cols-[.7fr_1.3fr]"><div><span className="eyebrow">Questions, answered</span><h2 className="section-title mt-7">Before you connect.</h2></div><FAQ/></div></section>
 
-    <section className="bg-[#ff6b18] py-20 text-black md:py-28"><div className="container grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end"><div><span className="text-xs font-bold uppercase tracking-[.18em]">Ready to start?</span><h2 className="mt-6 max-w-4xl text-5xl font-semibold leading-[.95] tracking-[-.065em] md:text-7xl">Check your location. Choose your speed.</h2></div><div className="flex flex-col gap-3 sm:flex-row lg:flex-col"><Link href="#coverage-check" className="rounded-full bg-black px-6 py-4 text-center font-bold text-white">Check coverage</Link><a href="https://portal.cheetahnet.co.ug/" target="_blank" rel="noreferrer" className="rounded-full border border-black/25 px-6 py-4 text-center font-bold">Renew package</a></div></div></section>
+    <section className="bg-[#ff6b18] py-20 text-black md:py-28"><div className="container grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end"><div><span className="text-xs font-bold uppercase tracking-[.18em]">Ready to start?</span><h2 className="mt-6 max-w-4xl text-5xl font-semibold leading-[.95] tracking-[-.065em] md:text-7xl">Check your location. Choose your speed.</h2></div><div className="flex flex-col gap-3 sm:flex-row lg:flex-col"><Link href="#coverage-check" className="final-coverage-button">Check coverage <span aria-hidden="true">→</span></Link><a href="https://portal.cheetahnet.co.ug/" target="_blank" rel="noreferrer" className="final-renewal-button">Renew package</a></div></div></section>
   </main>;
 }

@@ -40,8 +40,19 @@ button { cursor: pointer; }
 .button-primary, .button-secondary { display: inline-flex; align-items: center; justify-content: center; gap: .65rem; min-height: 52px; padding: 0 1.25rem; border-radius: 999px; font-weight: 700; transition: .25s ease; }
 .button-primary { color: #111; background: var(--orange); border: 1px solid var(--orange); }
 .button-primary:hover { transform: translateY(-2px); background: #ff7b32; }
+.button-primary:active { transform: translateY(0) scale(.98); background: #ed5c0d; }
 .button-secondary { border: 1px solid var(--line); background: rgba(255,255,255,.04); }
 .button-secondary:hover { border-color: rgba(244,240,229,.4); background: rgba(255,255,255,.08); }
+.button-secondary:active { transform: scale(.98); background: rgba(255,255,255,.12); }
+.final-coverage-button, .final-renewal-button { display: inline-flex; min-height: 54px; align-items: center; justify-content: center; gap: .65rem; border-radius: 999px; padding: .85rem 1.5rem; font-weight: 800; transition: transform .18s ease, background-color .18s ease, color .18s ease, box-shadow .18s ease; }
+.final-coverage-button { border: 2px solid #080906; background: #080906; color: #fffdf7; box-shadow: 0 10px 28px rgba(0,0,0,.22); }
+.final-coverage-button:hover { background: #25271f; color: #fff; transform: translateY(-2px); }
+.final-coverage-button:focus-visible { outline: 3px solid #fffdf7; outline-offset: 4px; box-shadow: 0 0 0 7px rgba(8,9,6,.35); }
+.final-coverage-button:active { background: #000; color: #fff; transform: translateY(0) scale(.97); }
+.final-renewal-button { border: 2px solid rgba(8,9,6,.45); color: #080906; }
+.final-renewal-button:hover { border-color: #080906; background: rgba(8,9,6,.1); }
+.final-renewal-button:focus-visible { outline: 3px solid #080906; outline-offset: 4px; }
+.final-renewal-button:active { transform: scale(.97); background: rgba(8,9,6,.18); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
 @keyframes pulse-line { 0%,100% { opacity: .25; transform: scaleX(.2); } 50% { opacity: 1; transform: scaleX(1); } }
