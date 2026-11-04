@@ -25,7 +25,7 @@ export function Hero() {
           <span className="flex items-center justify-end gap-2 text-white/75"><MapPin className="size-4 text-[#ff6b18]"/> Check location</span>
         </div>
       </motion.div>
-      <div className="hero-network relative z-10 h-[430px] min-h-0 lg:h-[670px]"><div className="absolute inset-y-0 -left-[30%] right-0"><HeroVisual/></div><div className="absolute bottom-5 left-1/2 -translate-x-1/2 rounded-full border border-white/10 bg-black/45 px-4 py-2 text-[10px] font-bold uppercase tracking-[.2em] text-white/55 backdrop-blur-md">Live network visual</div></div>
+      <div className="hero-network relative z-10 h-[430px] min-h-0 lg:h-[670px]"><div className="hero-network-canvas absolute inset-y-0 -left-[30%] right-0"><HeroVisual/></div><div className="absolute bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-white/10 bg-black/45 px-4 py-2 text-[10px] font-bold uppercase tracking-[.2em] text-white/55 backdrop-blur-md">Interactive fibre network</div></div>
     </div>
   </section>;
 }

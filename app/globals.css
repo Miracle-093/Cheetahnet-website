@@ -86,6 +86,7 @@ button { cursor: pointer; }
   .hero-title { font-size: clamp(3rem, 14vw, 4.65rem); }
   .hero-stage .container { padding-top: 3.5rem; }
   .hero-network { margin-inline: -12px; }
+  .hero-network-canvas { left: 0; right: 0; }
   .connected-life-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); overflow: visible; }
   .connected-life-tab { min-width: 0; padding-inline: .55rem; font-size: .82rem; }
   .connected-life-shade { background: linear-gradient(0deg, rgba(7,8,6,.98) 0%, rgba(7,8,6,.82) 47%, rgba(7,8,6,.08) 86%); }
