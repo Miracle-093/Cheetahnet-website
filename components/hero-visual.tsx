@@ -20,6 +20,7 @@ export function HeroVisual() {
   const [mode, setMode] = useState<HeroRenderingMode>("static");
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
+  const [sceneReady, setSceneReady] = useState(false);
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
@@ -41,9 +42,14 @@ export function HeroVisual() {
   const fallback = <FibreFallback animated={ready && windowMatchReducedMotion()} />;
   if (!ready || mode === "static" || failed) return fallback;
 
-  return <SceneBoundary fallback={fallback} onFailure={() => setFailed(true)}>
-    <FibreScene quality={mode === "webgl-low" ? "low" : "high"} />
-  </SceneBoundary>;
+  return <>
+    {!sceneReady && fallback}
+    <SceneBoundary fallback={fallback} onFailure={() => setFailed(true)}>
+      <div className={`absolute inset-0 transition-opacity duration-500 ${sceneReady ? "opacity-100" : "opacity-0"}`}>
+        <FibreScene quality={mode === "webgl-low" ? "low" : "high"} onReady={() => setSceneReady(true)} />
+      </div>
+    </SceneBoundary>
+  </>;
 }
 
 function windowMatchReducedMotion() {
