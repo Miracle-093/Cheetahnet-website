@@ -1,20 +1,13 @@
 import Link from "next/link";
-import { ArrowRight, Building2, Gamepad2, Home, Upload, Video } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Hero } from "@/components/hero";
+import { ConnectedLife } from "@/components/connected-life";
 import { PackageCard } from "@/components/package-card";
 import { PlanFinder } from "@/components/plan-finder";
 import { HomeCoverageChecker } from "@/components/home-coverage-checker";
 import { FAQ } from "@/components/faq";
 import { faqs } from "@/lib/faqs";
 import { packages } from "@/lib/packages";
-
-const uses = [
-  { icon:Home,title:"Home",kicker:"Everyday connection",text:"Browse, stream and keep the people at home connected across their regular devices." },
-  { icon:Video,title:"Work",kicker:"Calls and cloud tools",text:"Choose a practical starting speed for video calls, shared files and remote work." },
-  { icon:Upload,title:"Create",kicker:"Uploads and publishing",text:"Give heavier uploads, streaming and creative workflows more room to move." },
-  { icon:Gamepad2,title:"Play",kicker:"Gaming households",text:"Compare tiers for homes where gaming and streaming happen side by side." },
-  { icon:Building2,title:"Business",kicker:"Connected teams",text:"Start with your device count and the daily needs of the people you work with." },
-];
 
 export default function HomePage() {
   const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(item=>({"@type":"Question",name:item.q,acceptedAnswer:{"@type":"Answer",text:item.a}}))};
@@ -29,9 +22,7 @@ export default function HomePage() {
     </div></section>
     <div className="bg-[#f4f0e5] pb-7 text-center text-[#11130f]"><p className="container text-xs text-black/45">Interactive website concept for CheetahNet — package and company information pending final approval.</p></div>
 
-    <section className="bg-[#f4f0e5] py-24 text-[#11130f] md:py-32"><div className="container"><span className="eyebrow !text-[#c64b08]">Made for what comes next</span><div className="mt-7 grid gap-8 lg:grid-cols-[1fr_.72fr]"><h2 className="section-title">One connection.<br/>Five ways forward.</h2><p className="max-w-xl self-end text-lg leading-8 text-black/60">Start with what the internet needs to do for you. Then compare the speed and price that make sense for that routine.</p></div>
-      <div className="mt-16 grid border-y border-black/15 md:grid-cols-5">{uses.map(({icon:Icon,title,kicker,text},index)=><article key={title} className={`group py-8 md:min-h-[300px] md:px-6 ${index?"border-t border-black/15 md:border-l md:border-t-0":""}`}><div className="grid size-11 place-items-center rounded-full bg-[#11130f] text-[#ff6b18]"><Icon className="size-5"/></div><p className="mt-10 text-[10px] font-bold uppercase tracking-[.17em] text-black/40">{kicker}</p><h3 className="mt-3 text-2xl font-semibold tracking-[-.04em]">{title}</h3><p className="mt-3 text-sm leading-6 text-black/55">{text}</p></article>)}</div>
-    </div></section>
+    <ConnectedLife/>
 
     <section id="packages" className="border-y border-white/10 bg-[#0b0c09] py-24 md:py-32"><div className="container"><div className="flex flex-col justify-between gap-7 md:flex-row md:items-end"><div><span className="eyebrow">Internet packages</span><h2 className="section-title mt-7">Choose your pace.</h2></div><Link href="/packages" className="button-secondary">Compare all packages<ArrowRight className="size-4"/></Link></div><div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">{packages.map(plan=><PackageCard key={plan.id} plan={plan} featured={plan.id==="elite-pro"}/>)}</div></div></section>
 
