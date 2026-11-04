@@ -64,6 +64,8 @@ button { cursor: pointer; }
 .signal-line { transform-origin: left; animation: pulse-line 2.8s ease-in-out infinite; }
 @keyframes fibre-flow { to { stroke-dashoffset: -120; } }
 @keyframes data-a { to { offset-distance: 100%; } }
+@keyframes fallback-orbit { to { transform: rotate(347deg); } }
+@keyframes fallback-mesh { 50% { opacity: .55; transform: scale(.985); } }
 .fibre-fallback .fibre-path { stroke-dasharray: 8 13; }
 .fibre-fallback.is-animated .fibre-path { animation: fibre-flow 4s linear infinite; }
 .fibre-fallback.is-animated .path-b, .fibre-fallback.is-animated .path-d { animation-duration: 5.5s; animation-direction: reverse; }
@@ -74,6 +76,10 @@ button { cursor: pointer; }
 .fibre-fallback.is-animated .data-dot { animation: data-a 3.8s linear infinite; }
 .fibre-fallback.is-animated .dot-b { animation-delay: -1.8s; animation-duration: 4.8s; }
 .fibre-fallback.is-animated .dot-c { animation-delay: -2.7s; animation-duration: 4.2s; }
+.fibre-fallback .fallback-core-orbits { transform-origin: 378px 338px; }
+.fibre-fallback .fallback-core-mesh { transform-origin: 378px 338px; }
+.fibre-fallback.is-animated .fallback-core-orbits { animation: fallback-orbit 18s linear infinite; }
+.fibre-fallback.is-animated .fallback-core-mesh { animation: fallback-mesh 3.5s ease-in-out infinite; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
