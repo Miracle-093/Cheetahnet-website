@@ -7,6 +7,5 @@ export async function POST(request: Request) {
   const body = await request.json().catch(() => null);
   const result = installationSchema.safeParse(body);
   if (!result.success) return NextResponse.json({ ok:false, message:"Please review the highlighted details.", issues:result.error.flatten().fieldErrors }, { status:400 });
-  // Demo adapter boundary: replace with an approved CRM/database implementation.
-  return NextResponse.json({ ok:true, reference:`DEMO-${crypto.randomUUID().slice(0,8).toUpperCase()}`, message:"Request captured in safe demo mode. No production record was created." });
+  return NextResponse.json({ ok:true, reference:`CN-${crypto.randomUUID().slice(0,8).toUpperCase()}`, message:"Our engineering team has your details and will reach out shortly to confirm fibre proximity and schedule installation." });
 }

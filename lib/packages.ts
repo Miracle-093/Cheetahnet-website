@@ -18,8 +18,8 @@ export const packages: InternetPackage[] = [
     speedMbps: 15,
     priceUgx: 75_000,
     audience: "Everyday homes",
-    description: "A considered starting point for browsing, streaming and staying connected.",
-    benefits: ["Everyday browsing", "Social and messaging", "Light streaming"],
+    description: "Reliable, truly unlimited fibre for everyday browsing, HD streaming and staying connected.",
+    benefits: ["Symmetric upload & download", "Cheetah-Core router included", "No data caps — ever"],
     accent: "orange",
   },
   {
@@ -28,8 +28,8 @@ export const packages: InternetPackage[] = [
     speedMbps: 50,
     priceUgx: 104_999,
     audience: "Connected households",
-    description: "More room for shared streaming, remote work and active households.",
-    benefits: ["Multiple connected devices", "Video calls", "HD streaming"],
+    description: "Fast, low-latency fibre for remote work, 4K streaming and active multi-device homes.",
+    benefits: ["Ultra-low latency routing", "1 mesh extender included", "Priority technical support"],
     accent: "lime",
   },
   {
@@ -38,8 +38,8 @@ export const packages: InternetPackage[] = [
     speedMbps: 120,
     priceUgx: 248_999,
     audience: "Creators & gamers",
-    description: "Built for heavier streaming, uploads and demanding connected routines.",
-    benefits: ["Heavy streaming", "Large uploads", "Gaming households"],
+    description: "Built for live streaming, large creative uploads and competitive low-ping gaming.",
+    benefits: ["Multi-gig Ethernet port", "Static IP optional", "VIP engineer support"],
     accent: "orange",
   },
   {
@@ -48,8 +48,8 @@ export const packages: InternetPackage[] = [
     speedMbps: 250,
     priceUgx: 399_000,
     audience: "Businesses & power users",
-    description: "The highest listed tier for teams and bandwidth-intensive use.",
-    benefits: ["Busy teams", "Many devices", "High-demand workflows"],
+    description: "Our flagship tier for busy teams, offices and heavy cloud workflows.",
+    benefits: ["250 Mbps symmetric throughput", "Dedicated VIP care experience", "Mesh & static IP ready"],
     accent: "lime",
   },
 ];
