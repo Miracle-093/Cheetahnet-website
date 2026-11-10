@@ -118,14 +118,15 @@ function Network({ quality }: { quality: Quality }) {
   const { pointer, size } = useThree();
   const compact = size.width < 360;
   const medium = size.width >= 360 && size.width < 620;
+  const spacious = size.width >= 800;
   const paths = useMemo(() => curves.map((curve) => curve.getPoints(quality === "low" ? 26 : 56)), [quality]);
   useFrame((state) => {
     state.camera.position.x = THREE.MathUtils.lerp(state.camera.position.x, pointer.x * (compact ? .08 : .22), .025);
     state.camera.position.y = THREE.MathUtils.lerp(state.camera.position.y, pointer.y * (compact ? .045 : .12), .025);
     state.camera.lookAt(0, 0, 0);
   });
-  const position: [number, number, number] = compact ? [-.05, .02, 0] : medium ? [-.28, 0, 0] : [-.55, 0, 0];
-  const scale = compact ? .68 : medium ? .84 : 1;
+  const position: [number, number, number] = compact ? [-.05, .02, 0] : medium ? [-.28, 0, 0] : spacious ? [-1.15, 0, 0] : [-.78, 0, 0];
+  const scale = compact ? .68 : medium ? .84 : spacious ? .86 : .9;
   return <group position={position} scale={scale}>
     <Core quality={quality} />
     {endpoints.map((endpoint, index) => {

@@ -102,6 +102,24 @@ button { cursor: pointer; }
   .fibre-fallback svg { transform: scale(.82); transform-origin: center; }
 }
 
+@media (min-width: 1024px) {
+  .hero-stage .hero-network {
+    position: absolute;
+    top: 80px;
+    bottom: 0;
+    left: 50%;
+    right: calc((100vw - 100%) / -2);
+    height: auto;
+    margin: 0;
+  }
+  .hero-stage .hero-network-canvas { left: -6%; right: 0; }
+}
+
+@media (min-width: 1536px) {
+  .hero-stage .hero-network { left: 51%; }
+  .hero-stage .hero-network-canvas { left: -4%; }
+}
+
 /* Hero entrance (CSS so it runs before hydration). --d is set inline per element. */
 @keyframes hero-rise { from { opacity: 0; transform: translateY(105%); } to { opacity: 1; transform: none; } }
 @keyframes hero-fade { from { opacity: 0; transform: scale(.94); } to { opacity: 1; transform: none; } }
