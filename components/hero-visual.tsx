@@ -26,12 +26,13 @@ export function HeroVisual() {
     const frame = window.requestAnimationFrame(() => {
       const navigatorHints = navigator as NavigatorWithHints;
       const forceStatic = new URLSearchParams(window.location.search).get("hero") === "static";
+      const simplifiedViewport = window.matchMedia("(max-width: 1100px)").matches;
       const nextMode = selectHeroRenderingMode({
-        webglSupported: forceStatic ? false : browserSupportsWebGL(),
+        webglSupported: forceStatic || simplifiedViewport ? false : browserSupportsWebGL(),
         reducedMotion: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
         hardwareConcurrency: navigator.hardwareConcurrency,
         deviceMemory: navigatorHints.deviceMemory,
-        narrowViewport: window.matchMedia("(max-width: 820px)").matches,
+        narrowViewport: simplifiedViewport,
         saveData: navigatorHints.connection?.saveData,
       });
       setMode(nextMode); setReady(true);
