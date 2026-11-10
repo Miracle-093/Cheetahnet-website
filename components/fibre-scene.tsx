@@ -142,8 +142,18 @@ function Network({ quality }: { quality: Quality }) {
   </group>;
 }
 
+function ReadySignal({ onReady }: { onReady?: () => void }) {
+  const sent = useRef(false);
+  useFrame(() => {
+    if (sent.current) return;
+    sent.current = true;
+    onReady?.();
+  });
+  return null;
+}
+
 export function FibreScene({ quality, onReady }: { quality: Quality; onReady?: () => void }) {
-  return <div className="absolute inset-0" aria-hidden="true"><Canvas onCreated={onReady} dpr={quality === "low" ? 1 : [1, 1.5]} camera={{ position: [0, 0, 7.35], fov: 45 }} gl={{ antialias: quality === "high", powerPreference: quality === "low" ? "low-power" : "high-performance", alpha: true }}>
-    <ambientLight intensity={.5} /><pointLight position={[1.8, 1.8, 3]} color="#ffb200" intensity={19} distance={12} /><pointLight position={[-2.5, -1.4, 2]} color="#ffe3a1" intensity={7} distance={9} /><spotLight position={[0, 4, 5]} color="#fff5dd" intensity={7} angle={.55} penumbra={1} /><Network quality={quality} />
+  return <div className="absolute inset-0" aria-hidden="true"><Canvas dpr={quality === "low" ? 1 : [1, 1.5]} camera={{ position: [0, 0, 7.35], fov: 45 }} gl={{ antialias: quality === "high", powerPreference: quality === "low" ? "low-power" : "high-performance", alpha: true }}>
+    <ambientLight intensity={.5} /><pointLight position={[1.8, 1.8, 3]} color="#ffb200" intensity={19} distance={12} /><pointLight position={[-2.5, -1.4, 2]} color="#ffe3a1" intensity={7} distance={9} /><spotLight position={[0, 4, 5]} color="#fff5dd" intensity={7} angle={.55} penumbra={1} /><Network quality={quality} /><ReadySignal onReady={onReady} />
   </Canvas></div>;
 }
