@@ -4,7 +4,7 @@ import { ArrowRight, Gauge, ShieldCheck, Users, Wifi } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Learn how CheetahNet delivers low-latency, truly uncapped fibre internet across Uganda.",
+  description: "Learn how CheetahNet delivers low-latency, unlimited fibre internet across Uganda.",
   alternates: { canonical: "/about" },
 };
 
@@ -24,7 +24,7 @@ export default function AboutPage() {
           <h1 className="section-title mt-7 max-w-4xl">Engineered for precision. Built for Uganda.</h1>
           <div className="mt-12 grid gap-8 border-t border-white/10 pt-10 md:grid-cols-2">
             <p className="text-lg leading-8 text-white/70">
-              We don’t just provide internet — we provide the digital backbone for modern homes, creators and businesses across Uganda. Every CheetahNet plan delivers symmetric upload and download speeds with zero data caps.
+              We don’t just provide internet — we provide the digital backbone for modern homes, creators and businesses across Uganda. Every CheetahNet plan delivers symmetric upload and download speeds with unlimited monthly usage.
             </p>
             <p className="leading-8 text-white/55">
               From white-glove installation in under 60 minutes to next-generation Cheetah-Core Wi-Fi routers included on every package and 24/7 access to real network engineers, our network is built so your connection never gets in the way of what you do next.

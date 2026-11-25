@@ -23,7 +23,7 @@ export function PlanFinder() {
 
   return <div className="card overflow-hidden">
     <div className="grid md:grid-cols-[.7fr_1.3fr]">
-      <aside className="relative overflow-hidden bg-[#120e07] p-7 text-white md:p-10">
+      <aside className="relative overflow-hidden bg-[#010157] p-7 text-white md:p-10">
         <div className="pointer-events-none absolute -left-20 -top-20 size-72 rounded-full bg-[#ffb200]/25 blur-3xl" aria-hidden="true" />
         <Sparkles className="relative size-7 text-[#ffb200]" />
         <p className="relative mt-16 text-xs font-bold uppercase tracking-[.18em] text-[#ffb200]">Plan finder</p>

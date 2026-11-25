@@ -15,12 +15,12 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://cheetahnet-staging.
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: "CheetahNet | Unlimited Fibre Internet in Uganda", template: "%s | CheetahNet" },
-  description: "Experience symmetric, uncapped fibre internet for homes, creators, gamers and businesses in Uganda — from UGX 75,000/month with same-day installation.",
+  description: "Experience symmetric, unlimited fibre internet for homes, creators, gamers and businesses in Uganda — from UGX 75,000/month with same-day installation.",
   alternates: { canonical: "/" },
-  openGraph: { title: "CheetahNet Fibre Internet", description: "Uncapped symmetric fibre internet starting from UGX 75,000 per month.", type: "website", url: "/" },
+  openGraph: { title: "CheetahNet Fibre Internet", description: "Unlimited symmetric fibre internet starting from UGX 75,000 per month.", type: "website", url: "/" },
 };
 
-export const viewport: Viewport = { themeColor: "#090806" };
+export const viewport: Viewport = { themeColor: "#010157" };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (

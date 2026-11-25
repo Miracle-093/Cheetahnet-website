@@ -33,7 +33,7 @@ export default function ContactPage() {
               <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-[#ffb200]">{WHATSAPP_DISPLAY} <ArrowUpRight className="size-4" /></span>
             </a>
             <div className="card p-7">
-              <span className="text-xs font-bold uppercase tracking-[.18em] text-[#ffe3a1]">Online self-service</span>
+              <span className="text-xs font-bold uppercase tracking-[.18em] text-white">Online self-service</span>
               <h2 className="mt-5 text-2xl font-semibold">Book or renew</h2>
               <p className="mt-2 text-sm text-white/55">Request a new installation online or renew an existing subscription via Mobile Money.</p>
               <div className="mt-6 flex flex-wrap gap-3">

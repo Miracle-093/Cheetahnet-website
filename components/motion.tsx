@@ -14,7 +14,7 @@ export function MotionProvider({ children }: { children: ReactNode }) {
 export function ScrollProgress() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 140, damping: 30, mass: 0.3 });
-  return <motion.div aria-hidden="true" style={{ scaleX }} className="fixed inset-x-0 top-0 z-[60] h-[3px] origin-left bg-gradient-to-r from-[#f7941e] via-[#ffb200] to-[#ffe3a1]" />;
+  return <motion.div aria-hidden="true" style={{ scaleX }} className="fixed inset-x-0 top-0 z-[60] h-[3px] origin-left bg-gradient-to-r from-[#010157] via-[#ffb200] to-white" />;
 }
 
 /** Fades and lifts content into place the first time it enters the viewport. */

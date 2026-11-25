@@ -24,7 +24,7 @@ export function Header() {
   useMotionValueEvent(scrollY, "change", (value) => setScrolled(value > 24));
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,box-shadow] duration-500 ${scrolled || open ? "border-white/10 bg-[#090806]/85 shadow-[0_12px_40px_rgba(0,0,0,.35)] backdrop-blur-xl" : "border-transparent bg-transparent"}`}>
+    <header className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,box-shadow] duration-500 ${scrolled || open ? "border-white/10 bg-[#010157]/90 shadow-[0_12px_40px_rgba(1,1,87,.35)] backdrop-blur-xl" : "border-transparent bg-transparent"}`}>
       <div className={`container flex items-center justify-between transition-[height] duration-500 ${scrolled ? "h-[64px]" : "h-[80px]"}`}>
         <Link href="/" className="logo-link group relative flex items-center" aria-label="CheetahNet home">
           <Logo className={`w-auto transition-[height] duration-500 ${scrolled ? "h-8" : "h-10"}`} />

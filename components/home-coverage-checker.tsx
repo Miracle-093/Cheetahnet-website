@@ -19,8 +19,8 @@ export function HomeCoverageChecker() {
   const selectedPlan = packageById(value.packageId);
   const waHref = whatsappUrl(`Hello CheetahNet, please check fibre coverage for ${value.area || "my area"} (${value.street || "nearby landmark"})${selectedPlan ? ` — interested in ${selectedPlan.name} (${selectedPlan.speedMbps} Mbps)` : ""}.`);
   const submit = (event:FormEvent) => { event.preventDefault(); saveCoverageJourney(value); setStatus("checking"); track("coverage_check_started",{source:"homepage"}); window.setTimeout(()=>{setStatus("manual");track("coverage_check_completed",{source:"homepage",result:"manual_verification"});},450); };
-  const input = "min-h-14 rounded-xl border border-black/15 bg-white px-4 text-[#15120c] placeholder:text-black/35 transition-[border-color,box-shadow] focus:border-[#ffb200] focus:shadow-[0_0_0_4px_rgba(255,178,0,.22)] focus:outline-none";
-  return <div className="overflow-hidden rounded-[30px] border border-black/10 bg-[#f5f0e4] text-[#15120c] shadow-[0_30px_90px_rgba(0,0,0,.18)]">
+  const input = "min-h-14 rounded-xl border border-[#010157]/15 bg-white px-4 text-[#010157] placeholder:text-[#010157]/40 transition-[border-color,box-shadow] focus:border-[#ffb200] focus:shadow-[0_0_0_4px_rgba(255,178,0,.22)] focus:outline-none";
+  return <div className="overflow-hidden rounded-[30px] border border-[#010157]/10 bg-white text-[#010157] shadow-[0_30px_90px_rgba(1,1,87,.18)]">
     <div className="grid lg:grid-cols-[1fr_.72fr]">
       <form onSubmit={submit} className="p-7 md:p-10 lg:p-12"><div className="grid gap-5 md:grid-cols-2">
         <label className="grid gap-2 text-sm font-semibold">Neighbourhood<input required value={value.area} onChange={e=>setValue({...value,area:e.target.value})} className={input} placeholder="e.g. Kololo, Ntinda, Bugolobi"/></label>

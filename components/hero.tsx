@@ -24,13 +24,13 @@ export function Hero() {
           <span className="hero-line"><span className="hero-rise gold-shimmer" style={rise(2)}>Built for everything</span></span>
           <span className="hero-line"><span className="hero-rise" style={rise(3)}>you do next.</span></span>
         </h1>
-        <p className="hero-rise mt-7 max-w-[620px] text-lg font-medium leading-8 text-[#e8e2d4] md:text-xl" style={rise(5)}>Fast, uncapped fibre internet for homes, creators and businesses—from <strong className="text-[#ffb200]">UGX 75,000/month.</strong></p>
+        <p className="hero-rise mt-7 max-w-[620px] text-lg font-medium leading-8 text-white/85 md:text-xl" style={rise(5)}>Fast, unlimited fibre internet for homes, creators and businesses—from <strong className="text-[#ffb200]">UGX 75,000/month.</strong></p>
         <div className="hero-rise mt-9 flex flex-col gap-3 sm:flex-row" style={rise(6)}>
           <Link href="#coverage-check" className="button-primary !min-h-14 !px-7" onClick={() => track("hero_cta_clicked", { action: "coverage" })}>Check coverage <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" /></Link>
           <Link href="#packages" className="button-secondary !min-h-14 !border-white/25 !bg-white/[.06] !px-7" onClick={() => track("hero_cta_clicked", { action: "packages" })}>View packages</Link>
         </div>
         <div className="hero-rise mt-10 grid max-w-[650px] grid-cols-3 border-y border-white/15 py-4 text-sm" style={rise(7)}>
-          <span className="flex items-center gap-2 text-white/75"><InfinityIcon className="size-4 text-[#ffb200]" /> Uncapped</span>
+          <span className="flex items-center gap-2 text-white/75"><InfinityIcon className="size-4 text-[#ffb200]" /> Unlimited</span>
           <span className="flex items-center justify-center gap-2 border-x border-white/15 text-white/75"><Gauge className="size-4 text-[#ffb200]" /> 15–250 Mbps</span>
           <span className="flex items-center justify-end gap-2 text-white/75"><MapPin className="size-4 text-[#ffb200]" /> Check location</span>
         </div>

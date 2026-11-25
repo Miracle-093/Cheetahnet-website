@@ -4,7 +4,7 @@ import { Logo } from "@/components/header";
 import { WHATSAPP_DISPLAY, WHATSAPP_E164, whatsappUrl } from "@/lib/contact";
 
 export function Footer() {
-  return <footer className="relative overflow-hidden border-t border-white/10 bg-[#0e0c08] py-14">
+  return <footer className="relative overflow-hidden border-t border-white/10 bg-[#010157] py-14">
     <div className="pointer-events-none absolute -bottom-40 left-1/2 h-72 w-[800px] -translate-x-1/2 rounded-full bg-[#ffb200]/[.06] blur-[100px]" aria-hidden="true" />
     <div className="container relative grid gap-10 md:grid-cols-[1.35fr_1fr_1fr_1.15fr]">
       <div><Logo className="h-11 w-auto" /><p className="mt-5 max-w-sm text-sm leading-6 text-white/55">Reliable precision fibre connectivity for homes, creators and businesses across 42+ metropolitan areas in Uganda.</p></div>
